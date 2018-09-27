@@ -11,16 +11,22 @@ public class MainActivity extends AppCompatActivity {
     private Button btnNuevoPedido;
     private Button btnHistorial;
     private Button btnListaProductos;
+    private Bundle miBundle = new Bundle();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         btnNuevoPedido = (Button) findViewById(R.id.btnMainNuevoPedido);
         btnNuevoPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent();
+                //VER DONDE VA ESTO
+                //Bundle miBundle = new Bundle();
+                miBundle.putInt("NUEVO_PEDIDO",1);
+
                 startActivity(i);
             }
         });
@@ -30,7 +36,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent();
+                //VER DONDE VA ESTO
+                //Bundle miBundle = new Bundle();
+                miBundle.putInt("NUEVO_PEDIDO",0);
                 startActivity(i);
+
             }
         });
 
@@ -39,8 +49,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent();
+                //VER DONDE VA ESTO
+                //Bundle miBundle = new Bundle();
+                miBundle.putInt("NUEVO_PEDIDO",0);
+
                 startActivity(i);
             }
         });
+    }
+
+    public void onClick(View view) {
+        Intent miIntent = new Intent(MainActivity.this, producto_activity.class);
+
+        miIntent.putExtras(miBundle);
+
+        startActivity(miIntent);
     }
 }
