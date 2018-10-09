@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
                 //VER DONDE VA ESTO
                 //Bundle miBundle = new Bundle();
                 miBundle.putInt("NUEVO_PEDIDO",1);
-
                 startActivity(i);
             }
         });
@@ -52,17 +51,23 @@ public class MainActivity extends AppCompatActivity {
                 //VER DONDE VA ESTO
                 //Bundle miBundle = new Bundle();
                 miBundle.putInt("NUEVO_PEDIDO",0);
-
                 startActivity(i);
             }
         });
     }
 
     public void onClick(View view) {
-        Intent miIntent = new Intent(MainActivity.this, producto_activity.class);
+        //PRIMER PTO QUE SALTA A PRODUCTO_ACTIVITY DONDE BUSCA LOS PRODUCTOS
+        //Intent miIntent = new Intent(MainActivity.this, producto_activity.class);
+        //miIntent.putExtras(miBundle);
+        //startActivity(miIntent);
 
-        miIntent.putExtras(miBundle);
-
+        //PUNTO 3. INTENT Q VA A ACTIVITY_ALTAPRODUCTO
+        Intent miIntent = new Intent(MainActivity.this, altaproducto.class);
         startActivity(miIntent);
     }
+
+
+
+
 }

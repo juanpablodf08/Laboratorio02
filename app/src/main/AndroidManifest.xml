@@ -16,7 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".producto_activity"></activity>
+        <activity android:name=".producto_activity" />
+        <activity android:name=".modelo.altaproducto" />
+        <activity android:name=".altaproducto" />
+        <activity android:name=".modelo.PedidoActivity"></activity>
     </application>
 
 </manifest>

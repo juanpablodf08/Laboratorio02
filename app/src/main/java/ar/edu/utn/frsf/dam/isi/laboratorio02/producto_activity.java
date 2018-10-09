@@ -1,5 +1,6 @@
 package ar.edu.utn.frsf.dam.isi.laboratorio02;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,11 +8,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import static ar.edu.utn.frsf.dam.isi.laboratorio02.R.*;
 
@@ -23,31 +26,29 @@ public class producto_activity extends AppCompatActivity {
     int botonElegido;
     Button btnAgregarPedido;
     int num;
+    EditText ingresarCantidad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_producto_activity);
 
-        final Bundle miBundle = this.getIntent().getExtras();
+        Bundle miBundle = this.getIntent().getExtras();
 
         estado = (TextView) findViewById(id.idSeleccionar);
         listaEntradas = (Spinner) findViewById(id.idSpinnerProductos);
         ListViewProductos = (ListView) findViewById(id.idListViewLista);
         botonElegido = miBundle.getInt("NUEVO_PEDIDO");
         btnAgregarPedido= findViewById(id.idBotonAgregar);
-
-
-
-       // if (botonElegido==1){
-         //    idIngCantidad.setEnable(true);
-          //   btnAgregarPedido.setEnable(true);
-        //};
+        ingresarCantidad = (EditText) findViewById(R.id.idIngCantidad);
 
 
 
 
-
+        if (botonElegido==1){
+            ingresarCantidad.setText("Ingresar cantidad");
+            //btnAgregarPedido.setEnable(true);
+        };
 
         //TRAIGO VALOR SELECCIONADO EN SPINNER
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -74,20 +75,20 @@ public class producto_activity extends AppCompatActivity {
 
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
-
         }
+
         });
-
-
 
         btnAgregarPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                miBundle.putInt("cantidad", id.idTextCantidad);
-               // miBundle.putInt("idProducto",idProducto); VER COMO PASO ID PRODUCTO
+                Intent i = new Intent(producto_activity.this, MainActivity.class);
+
+                i.putExtra("cantidad", ingresarCantidad.getText());
+                i.putExtra("idProducto", ListViewProductos.getId());
+                startActivityForResult(i,111);
             }
         });
-
 
     }
 
