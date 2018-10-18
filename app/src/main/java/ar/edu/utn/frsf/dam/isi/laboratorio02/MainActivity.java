@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnHistorial = (Button) findViewById(R.id.btnHistorialPedidos);
+        btnHistorial = (Button) findViewById(R.id.btnHistorialPedidos);//BOTON HISTORIAL
         btnHistorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
