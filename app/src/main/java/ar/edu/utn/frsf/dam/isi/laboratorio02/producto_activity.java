@@ -43,8 +43,6 @@ public class producto_activity extends AppCompatActivity {
         ingresarCantidad = (EditText) findViewById(R.id.idIngCantidad);
 
 
-
-
         if (botonElegido==1){
             ingresarCantidad.setText("Ingresar cantidad");
             //btnAgregarPedido.setEnable(true);

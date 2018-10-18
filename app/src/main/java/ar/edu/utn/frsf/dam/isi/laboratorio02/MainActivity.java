@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import ar.edu.utn.frsf.dam.isi.laboratorio02.modelo.HistorialProductos;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button btnNuevoPedido;
@@ -35,10 +37,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent();
-                //VER DONDE VA ESTO
-                //Bundle miBundle = new Bundle();
                 miBundle.putInt("NUEVO_PEDIDO",0);
-                startActivity(i);
+                Intent miIntent2 = new Intent(MainActivity.this, HistorialProductos.class);
+                startActivity(miIntent2);
 
             }
         });
